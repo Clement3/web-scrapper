@@ -6,10 +6,6 @@ const notify = require('./notify')
 
 const PRODUCT_URL = process.env.PRODUCT_URL
 
-const cronConfig = {
-  timezone: "Europe/Paris"
-}
-
 // Scrap every 1 hours
 cron.schedule('* * 1 * * *', async () => {
   await scrapper(PRODUCT_URL, async (page) => {
