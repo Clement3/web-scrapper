@@ -17,4 +17,3 @@ jobs:
           passphrase: ${{ secrets.SERVER_PW }}
           privateKey: ${{ secrets.SERVER_SSH }}
           command: ./deploy.sh
-
