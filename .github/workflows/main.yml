@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Connect to the machine
-        uses: appleboy/ssh-action@master
+        uses: garygrossgarten/github-action-ssh@release
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PW }}
-          ssh: ${{ secrets.SERVER_SSH }}
+          passphrase: ${{ secrets.SERVER_PW }}
+          privateKey: ${{ secrets.SERVER_SSH }}
           script: |
             whoami
             ls -al
