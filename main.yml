@@ -1,0 +1,21 @@
+name: Deploy on Scaleway
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  connect-machine:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Connect to the machine
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          ssh: ${{ secrets.SERVER_SSH }}
+          script: |
+            whoami
+            ls -al
+          
